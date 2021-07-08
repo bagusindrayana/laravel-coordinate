@@ -17,9 +17,9 @@ composer require bagusindrayana/laravel-coordinate
 #use trait
 use Bagusindrayana\LaravelCoordinate\Traits\LaravelCoordinate;
 
-class User extends Authenticatable
+class Toko extends Model
 {
-    use HasFactory, Notifiable,LaravelCoordinate;
+    use LaravelCoordinate;
 
     //optional
     public $_latitudeName = "latitude_column"; //defaul value is latitude
