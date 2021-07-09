@@ -1,6 +1,6 @@
 # LARAVEL-COORDINATE
 
-get nearby location from eloquent laravel
+get nearby location data from database with eloquent laravel
 
 
 ## Installation
@@ -22,8 +22,8 @@ class Toko extends Model
     use LaravelCoordinate;
 
     //optional
-    public $_latitudeName = "latitude_column"; //defaul value is latitude
-    public $_longitudeName = "latitude_column"; //defaul value is longitude
+    public $_latitudeName = "latitude_column"; //default name is latitude
+    public $_longitudeName = "latitude_column"; //default name is longitude
 
     //
 
