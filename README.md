@@ -58,7 +58,7 @@ class Toko extends Model
         -0.497493,//latitude
         117.156480//longitude
     ],0.5) //0.5 Km
-    ->selectDistance(['id','nama_toko'],'_distance') //will add new column with name _distance containt value of distance every record
+    ->selectDistance(['id','nama_toko'],'_distance') //will add new column with name _distance contain value of distance every record
     ->get();
 
 ```
