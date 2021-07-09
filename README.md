@@ -39,6 +39,8 @@ class Toko extends Model
         117.156480//longitude
     ],0.5)->get();
 
+
+    //using order remember order awlways in last query
     //get data by distance 1 KM and order by farthest distance
     $tokos = Toko::nearby([
         -0.497493,//latitude
@@ -50,5 +52,42 @@ class Toko extends Model
         -0.497493,//latitude
         117.156480//longitude
     ],1)->closest()->get();
+    
+    //add new column with containt distance value
+    $tokos = Toko::nearby([
+        -0.497493,//latitude
+        117.156480//longitude
+    ],0.5) //0.5 Km
+    ->selectDistance(['id','nama_toko'],'_distance') //will add new column with name _distance containt value of distance every record
+    ->get();
 
+```
+
+
+## Formula
+
+I haven't tried how much data it can handle and how fast the calculations are so here are 3 different formulas you can try
+
+```
+nearby(coordinate,radius/distance,formula)
+```
+
+
+formula paramter/arguments (int)
+
+- 0 = default
+- 1 = Spherical Law of Cosines
+- 3 = Haversine formula
+
+example :
+
+```php
+$tokos = Toko::nearby([
+        -0.497493,//latitude
+        117.156480//longitude
+    ],
+    0.5,
+    1//using Spherical Law of Cosines
+)
+->get();
 ```
