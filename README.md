@@ -77,7 +77,7 @@ formula paramter/arguments (int)
 
 - 0 = default
 - 1 = Spherical Law of Cosines
-- 3 = Haversine formula
+- 2 = Haversine formula
 
 example :
 
