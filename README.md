@@ -68,10 +68,6 @@ class Toko extends Model
 
 I haven't tried how much data it can handle and how fast the calculations are so here are 3 different formulas you can try
 
-```
-nearby(coordinate,radius/distance,formula)
-```
-
 
 formula paramter/arguments (int)
 
@@ -91,3 +87,25 @@ $tokos = Toko::nearby([
 )
 ->get();
 ```
+
+
+## Scope
+
+```
+nearby(coordinate,radius/distance = 5,formula = 0)
+```
+
+```
+closest(coordinate,formula = 0)
+```
+
+```
+farthest(coordinate,formula = 0)
+```
+
+```
+selectDistance(fieldName,aliasName,formula = 0)
+```
+
+```
+insideBox(coorinate(2 coordinate))
