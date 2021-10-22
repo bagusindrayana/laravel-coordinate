@@ -40,7 +40,7 @@ class Toko extends Model
     ],0.5)->get();
 
 
-    //using order remember order awlways in last query
+    //using order, remember order always in last query
     //get data by distance 1 KM and order by farthest distance
     $tokos = Toko::nearby([
         -0.497493,//latitude
@@ -53,12 +53,12 @@ class Toko extends Model
         117.156480//longitude
     ],1)->closest()->get();
     
-    //add new column with containt distance value
+    //add a new column containing distance values
     $tokos = Toko::nearby([
         -0.497493,//latitude
         117.156480//longitude
     ],0.5) //0.5 Km
-    ->selectDistance(['id','nama_toko'],'_distance') //will add new column with name _distance contain value of distance every record
+    ->selectDistance(['id','nama_toko'],'_distance') //will add new column with name _distance containing distance values every record
     ->get();
 
 ```
