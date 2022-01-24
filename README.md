@@ -23,7 +23,7 @@ class Toko extends Model
 
     //optional
     public $_latitudeName = "latitude_column"; //default name is latitude
-    public $_longitudeName = "latitude_column"; //default name is longitude
+    public $_longitudeName = "longitude_column"; //default name is longitude
 
     //
 
@@ -33,7 +33,7 @@ class Toko extends Model
 
 - Using trait
 ```php
-    //get data by distance 500 m (0.5KM)
+    //get data that is 500 m (0.5KM)
     $tokos = Toko::nearby([
         -0.497493,//latitude
         117.156480//longitude
@@ -41,13 +41,13 @@ class Toko extends Model
 
 
     //using order, remember order always in last query
-    //get data by distance 1 KM and order by farthest distance
+    //get data that is 1 km KM and order by farthest distance
     $tokos = Toko::nearby([
         -0.497493,//latitude
         117.156480//longitude
     ],1)->farthest()->get();
     
-    //get data by distance 1 KM and order by closest distance
+    //get data that is 1 km and order by closest distance
     $tokos = Toko::nearby([
         -0.497493,//latitude
         117.156480//longitude
@@ -58,7 +58,7 @@ class Toko extends Model
         -0.497493,//latitude
         117.156480//longitude
     ],0.5) //0.5 Km
-    ->selectDistance(['id','nama_toko'],'_distance') //will add new column with name _distance containing distance values every record
+    ->selectDistance(['id','nama_toko'],'_distance') //will add new column with name "_distance" containing distance values every record
     ->get();
 
 ```
