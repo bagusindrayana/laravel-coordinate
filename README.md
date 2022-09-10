@@ -1,6 +1,6 @@
 # LARAVEL-COORDINATE
 
-get nearby location data from database with eloquent laravel
+find data with the closest location based on its coordinates with eloquent laravel
 
 
 ## Installation
@@ -33,32 +33,32 @@ class Toko extends Model
 
 - Using trait
 ```php
-    //get data that is 500 m (0.5KM)
+    //get data at a distance of 500 meters (0.5KM)
     $tokos = Toko::nearby([
         -0.497493,//latitude
         117.156480//longitude
     ],0.5)->get();
 
 
-    //using order, remember order always in last query
-    //get data that is 1 km KM and order by farthest distance
+    //using order, remember that the order is always placed at the end of the query
+    //get data with a distance of 1 kilometer and sort it from farthest
     $tokos = Toko::nearby([
         -0.497493,//latitude
         117.156480//longitude
     ],1)->farthest()->get();
     
-    //get data that is 1 km and order by closest distance
+    //get data with a distance of 1 kilometer and sort it from closest to closest
     $tokos = Toko::nearby([
         -0.497493,//latitude
         117.156480//longitude
     ],1)->closest()->get();
     
-    //add a new column containing distance values
+    //add a custom column containing the distance value of each record
     $tokos = Toko::nearby([
         -0.497493,//latitude
         117.156480//longitude
     ],0.5) //0.5 Km
-    ->selectDistance(['id','nama_toko'],'_distance') //will add new column with name "_distance" containing distance values every record
+    ->selectDistance(['id','nama_toko'],'_distance') //this function will add a custom column/alias with the name "_distance" which contains the distance value of each record
     ->get();
 
 ```
@@ -66,7 +66,7 @@ class Toko extends Model
 
 ## Formula
 
-I haven't tried how much data it can handle and how fast the calculations are so here are 3 different formulas you can try
+I haven't tried how much data it can handle and how fast the calculations are, so here are 3 different formulas you can try
 
 
 formula paramter/arguments (int)
